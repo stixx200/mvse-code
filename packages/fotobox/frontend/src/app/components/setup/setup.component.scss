@@ -1,0 +1,33 @@
+@import "../../../styles";
+
+.start-btn {
+  height: 5rem;
+  font-weight: bold;
+  font-size: large;
+}
+
+.setup-container {
+  padding: 15px;
+  margin: 15px;
+  background-color: lightgrey;
+  width: 80%;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container * {
+  width: 100%;
+}
+
+.titlewrap {
+}
+
+.titlewrap > .left {
+  float: left;
+}
+.titlewrap > .right {
+  float: right;
+}

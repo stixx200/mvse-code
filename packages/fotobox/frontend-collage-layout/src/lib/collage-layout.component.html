@@ -1,0 +1,28 @@
+<div (click)="takePicture()" *ngIf="!currentPhoto" class="h-100 w-100 overlay">
+</div>
+
+<mvse-ui-shared-message-stripe *ngIf="!currentPhoto && !countdown.running" [message]="topMessage | translate"
+                               class="top-message">
+</mvse-ui-shared-message-stripe>
+
+<mvse-ui-shared-photo-view *ngIf="currentPhoto"
+                           [config]="photoviewConfiguration"
+                           [photoUrl]="currentPhoto"
+                           class="front">
+</mvse-ui-shared-photo-view>
+
+<mvse-fotobox-frontend-collage-image
+  #imageComponent
+  [hidden]="currentPhoto"
+  [templateId]="options.templateId"
+  (done)="onCollageDone($event)"
+  class="front">
+</mvse-fotobox-frontend-collage-image>
+
+<mvse-ui-shared-message-stripe (action)="exit()"
+                               *ngIf="!currentPhoto && !countdown.running && options.showExitButton"
+                               [message]="bottomMessage | translate"
+                               class="bottom-message front">
+</mvse-ui-shared-message-stripe>
+
+<mvse-ui-shared-countdown #countdown [timeout]="timeout | async" (onFinished)="triggerCamera.emit()" class="w-100 h-100"></mvse-ui-shared-countdown>

@@ -1,0 +1,66 @@
+type Query {
+  cameraDrivers: [String!]
+  selectedCameraDriver: String!
+  photoDirectory: String!
+  usePrinter: Boolean!
+  shutterTimeout: Int!
+  collage: Collage
+  filePickerResult(mode: FilePickerMode!, defaultPath: String): String
+  templates(directory: String!): [Template!]!
+  state: AppState!
+}
+
+type Template {
+  title: String!
+  name: String!
+}
+
+type Collage {
+  templateId: String!
+  photos: [String]!
+  photoCount: Int!
+  done: Boolean!
+  url: String!
+}
+
+type Mutation {
+#  collage
+  initCollage(templateId: String!): Collage!
+  resetCollage: Collage!
+  addPhotoToCollage(photo: String!): Collage!
+# application control
+  startApplication(settings: ApplicationSettings!): AppState!
+  triggerCamera: Photo!
+  triggerPrinter: Boolean!
+  setSelectedCameraDriver: String!
+  setPhotoDirectory: String!
+  setShutterTimeout: Int!
+  setUsePrinter: Boolean!
+}
+
+type Subscription {
+  newPhoto: Photo!
+  liveView: Photo!
+  state: AppState!
+}
+
+type Photo {
+  uri: String!
+}
+
+enum FilePickerMode {
+  FILE,
+  DIRECTORY
+}
+
+input ApplicationSettings {
+  selectedCameraDriver: String!
+  photoDir: String!
+  usePrinter: Boolean
+  shutterTimeout: Int
+}
+
+type AppState {
+  appStarted: Boolean!
+  message: String
+}

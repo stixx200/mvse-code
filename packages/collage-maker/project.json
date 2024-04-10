@@ -1,0 +1,20 @@
+{
+  "name": "fotobox-collage-maker",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "package/fotobox/collage-maker/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "package/fotobox/collage-maker/jest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}

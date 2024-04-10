@@ -1,0 +1,115 @@
+query getCameraDrivers {
+  cameraDrivers
+}
+
+query GetSelectedCameraDriver {
+  selectedCameraDriver
+}
+
+query GetPhotoDirectory {
+  photoDirectory
+}
+
+query GetUsePrinter {
+  usePrinter
+}
+
+query GetShutterTimeout {
+  shutterTimeout
+}
+
+
+query GetFilePickerResult($Mode: FilePickerMode!, $defaultPath: String) {
+  filePickerResult(mode: $Mode, defaultPath: $defaultPath)
+}
+
+query GetTemplatesFromDirectory($Directory: String!) {
+  templates(directory: $Directory) {
+    title
+    name
+  }
+}
+
+query GetCollage {
+  collage {
+    templateId
+    done
+    photos
+    url
+  }
+}
+
+query GetState {
+  state {
+    message
+    appStarted
+  }
+}
+
+mutation ResetCollage {
+ resetCollage {
+   templateId
+   photoCount
+   done
+   photos
+   url
+ }
+}
+
+mutation AddPhotoToCollage($Photo: String!) {
+  addPhotoToCollage(photo: $Photo) {
+    templateId
+    photoCount
+    done
+    photos
+    url
+  }
+}
+
+
+mutation InitCollage($TemplateId: String!) {
+  initCollage(templateId: $TemplateId) {
+    templateId
+    photoCount
+    done
+    photos
+    url
+  }
+}
+
+mutation TriggerCamera {
+  triggerCamera {
+    uri
+  }
+}
+
+mutation TriggerPrinter {
+  triggerPrinter
+}
+
+mutation StartApplication($Settings: ApplicationSettings!) {
+  startApplication(settings: $Settings) {
+    appStarted
+    message
+  }
+}
+
+subscription Status {
+  state {
+    message
+    appStarted
+  }
+}
+
+subscription LiveView {
+  liveView {
+    uri
+  }
+}
+
+subscription NewPhoto {
+  newPhoto {
+    uri
+  }
+}
+

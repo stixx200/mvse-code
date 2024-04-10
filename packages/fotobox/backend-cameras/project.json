@@ -1,0 +1,20 @@
+{
+  "name": "fotobox-backend-cameras",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "packages/fotobox/backend-cameras/src",
+  "prefix": "mvse",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "packages/fotobox/backend-cameras/**/*.ts",
+          "packages/fotobox/backend-cameras/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["type:nest", "scope:backend"]
+}

@@ -1,0 +1,17 @@
+.top-message {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.bottom-message {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.front {
+  z-index: 100;
+}
+.back {
+  z-index: 0;
+}

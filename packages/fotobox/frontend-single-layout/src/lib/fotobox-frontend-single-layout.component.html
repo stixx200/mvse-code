@@ -1,0 +1,17 @@
+<div class="w-100 h-100 back" (click)="takePicture()">
+  <mvse-ui-shared-message-stripe *ngIf="!currentPhoto && !countdown.running" [message]="'LAYOUTS.READY_TAKE_PICTURE' | translate"
+                      class="top-message">
+  </mvse-ui-shared-message-stripe>
+
+  <mvse-ui-shared-photo-view *ngIf="currentPhoto"
+                  [config]="photoviewConfiguration"
+                  [photoUrl]="currentPhoto">
+  </mvse-ui-shared-photo-view>
+
+  <mvse-ui-shared-message-stripe (action)="exit()"
+                      *ngIf="!currentPhoto && !countdown.running"
+                      [message]="'LAYOUTS.ABORT' | translate" class="bottom-message front">
+  </mvse-ui-shared-message-stripe>
+
+  <mvse-ui-shared-countdown #countdown [timeout]="timeout | async" (onFinished)="triggerCamera.emit()" class="w-100 h-100"></mvse-ui-shared-countdown>
+</div>

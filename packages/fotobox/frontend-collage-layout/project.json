@@ -1,0 +1,28 @@
+{
+  "name": "fotobox-collage-layout",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "/src",
+  "prefix": "mvse",
+  "tags": [],
+  "projectType": "library",
+  "targets": {
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/fotobox/collage-layout/jest.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "packages/fotobox/frontend-collage-layout",
+          "packages/fotobox/collage-layout/**/*.ts",
+          "packages/fotobox/collage-layout/**/*.html"
+        ]
+      }
+    }
+  }
+}

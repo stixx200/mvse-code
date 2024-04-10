@@ -1,0 +1,48 @@
+@import "../../../styles";
+
+h3 {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  color: brown;
+  font: italic bold 1.8em 'trebuchet MS', Arial, helvetica;
+}
+
+.container {
+  background-color: $field-background-color;
+  //padding-top: 60px;
+}
+
+.image {
+  background-size: contain !important;
+  height: 200px;
+  margin: auto;
+}
+
+.singleimg {
+  background: url('../../../assets/singlelayout.preview.jpg') center center no-repeat;
+}
+.collageimg {
+  background: url('../../../assets/collagelayout.preview.jpg') center center no-repeat;
+}
+
+.panel {
+  position: absolute;
+  width: 30%;
+  bottom: 10px;
+}
+.firstpanel {
+  left: 10px;
+}
+.secondpanel {
+  right: 10px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  line-height: 52px;
+  vertical-align: middle;
+}

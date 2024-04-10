@@ -1,0 +1,10 @@
+overwrite: true
+schema: "packages/fotobox/backend/src/app/schema.graphql"
+generates:
+  packages/fotobox/frontend-data-access/src/lib/generated/generated.ts:
+    documents: "packages/fotobox/frontend-data-access/src/lib/**/*.graphql"
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-apollo-angular":
+          addExplicitOverride: true

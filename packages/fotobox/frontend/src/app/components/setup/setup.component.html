@@ -1,0 +1,70 @@
+<mvse-ui-shared-header></mvse-ui-shared-header>
+
+<div class="setup-container mx-auto">
+  <div class="titlewrap">
+    <p class="mat-headline">{{ 'PAGES.SETUP.TITLE' | translate }}</p>
+  </div>
+
+  <mat-tab-group dynamicHeight>
+    <mat-tab *ngIf='(setupConfigs$ | async)!["general"]'>
+      <ng-template mat-tab-label>
+        {{ 'PAGES.SETUP.GENERAL' | translate }}
+      </ng-template>
+      <fotobox-frontend-setup-group [config]='(setupConfigs$ | async)!["general"]'></fotobox-frontend-setup-group>
+    </mat-tab>
+    <mat-tab *ngIf="(setupConfigs$ | async)!['collage']">
+      <ng-template mat-tab-label>
+        {{ 'PAGES.SETUP.COLLAGE' | translate }}
+      </ng-template>
+      <fotobox-frontend-setup-group [config]='(setupConfigs$ | async)!["collage"]'></fotobox-frontend-setup-group>
+    </mat-tab>
+    <mat-tab *ngIf="(setupConfigs$ | async)!['camera']">
+      <ng-template mat-tab-label>
+        {{ 'PAGES.SETUP.CAMERA' | translate }}
+      </ng-template>
+      <fotobox-frontend-setup-group [config]='(setupConfigs$ | async)!["camera"]'></fotobox-frontend-setup-group>
+    </mat-tab>
+    <mat-tab *ngIf='(setupConfigs$ | async)!["advanced"]'>
+      <ng-template mat-tab-label>
+        {{ 'PAGES.SETUP.ADVANCED' | translate }}
+      </ng-template>
+      <fotobox-frontend-setup-group [config]='(setupConfigs$ | async)!["advanced"]'></fotobox-frontend-setup-group>
+    </mat-tab>
+  </mat-tab-group>
+</div>
+
+<button (click)="startApplication$.next(statusModal)"
+        [routerLink]="['/']"
+        class="w-100 start-btn"
+        color="primary"
+        mat-raised-button>
+  {{ 'PAGES.SETUP.BUTTON.NEXT' | translate }}
+</button>
+
+<!--&lt;!&ndash;Wait for application started modal&ndash;&gt;-->
+
+<div #statusModal
+     aria-labelledby="dialog-events-name"
+     bsModal
+     class="modal fade"
+     role="dialog"
+     tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="dialog-events-name" class="modal-title pull-left">
+          {{ "PAGES.SETUP.FOTOBOX.MODAL.TITLE" | translate }}
+        </h4>
+      </div>
+      <div class="modal-body">
+        <p>{{ "PAGES.SETUP.FOTOBOX.MODAL.MESSAGE" | translate }}</p>
+        <p><b>Status:</b> {{ statusMessage$ | async | translate }}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="abort()">
+          {{ "PAGES.SETUP.FOTOBOX.MODAL.ABORT" | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

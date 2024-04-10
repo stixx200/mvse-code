@@ -1,0 +1,16 @@
+<div class="group-container">
+  <div *ngFor="let element of config" [ngSwitch]="element.type">
+    <fotobox-frontend-setup-group-selection-setup *ngSwitchCase="'selection'" [config]="element"></fotobox-frontend-setup-group-selection-setup>
+    <fotobox-frontend-setup-group-directory-setup *ngSwitchCase="'directory'" [config]="element"></fotobox-frontend-setup-group-directory-setup>
+    <fotobox-frontend-setup-group-file-setup *ngSwitchCase="'file'" [config]="element"></fotobox-frontend-setup-group-file-setup>
+    <fotobox-frontend-setup-group-checkbox-setup *ngSwitchCase="'checkbox'" [config]="element"></fotobox-frontend-setup-group-checkbox-setup>
+    <fotobox-frontend-setup-group-multi-selection-setup *ngSwitchCase="'multi-selection'" [config]="element"></fotobox-frontend-setup-group-multi-selection-setup>
+    <fotobox-frontend-setup-group-textarea-setup *ngSwitchCase="'textsarea'" [config]="element"></fotobox-frontend-setup-group-textarea-setup>
+    <fotobox-frontend-setup-group-text-setup *ngSwitchCase="'text'" [config]="element"></fotobox-frontend-setup-group-text-setup>
+    <fotobox-frontend-setup-group-number-setup *ngSwitchCase="'number'" [config]="element"></fotobox-frontend-setup-group-number-setup>
+    <fotobox-frontend-setup-group-button-setup *ngSwitchCase="'button'" [config]="element"></fotobox-frontend-setup-group-button-setup>
+    <!--default case when there are no matches -->
+    <div *ngSwitchDefault>unknown type of setup element. Forgot to extend setup-group.component.html?</div>
+  </div>
+</div>
+

@@ -1,0 +1,27 @@
+{
+  "name": "fotobox-frontend-data-access",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/fotobox/frontend-data-access/src",
+  "prefix": "mvse",
+  "tags": [],
+  "projectType": "library",
+  "targets": {
+    "generate": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx graphql-codegen --config packages/fotobox/frontend-data-access/codegen.yml"
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/fotobox/frontend-data-access/jest.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    }
+  }
+}

@@ -1,0 +1,13 @@
+<div #page class="h-100">
+  <div class="panel firstpanel" *ngFor="let layout of (usedLayouts$ | async)">
+    <mat-card class="container" [routerLink]="['layout', '?layout=' + layout.component]">
+      <mat-card-header>
+        <mat-card-title><h3>{{ layout.title | translate }}</h3></mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content class="h-100">
+        <div class="image singleimg img-fluid">&nbsp;</div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+{
+  "name": "fotobox-backend",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/fotobox/backend/src",
+  "projectType": "application",
+  "targets": {
+    "generate": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node ./generate-gql-typings.js",
+        "cwd": "packages/fotobox/backend"
+      }
+    },
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/packages/fotobox/backend",
+        "main": "packages/fotobox/backend/src/main.ts",
+        "tsConfig": "packages/fotobox/backend/tsconfig.app.json",
+        "assets": ["packages/fotobox/backend/src/assets"],
+        "isolatedConfig": true,
+        "webpackConfig": "packages/fotobox/backend/webpack.config.js"
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "fotobox-backend:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "fotobox-backend:build:development"
+        },
+        "production": {
+          "buildTarget": "fotobox-backend:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/fotobox/backend/jest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,20 @@
+{
+  "name": "fotobox-shared",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "packages/fotobox/shared/src",
+  "prefix": "mvse",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "packages/fotobox/shared/**/*.ts",
+          "packages/fotobox/shared/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["type:ui", "scope:client"]
+}
