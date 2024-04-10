@@ -14,7 +14,50 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@mvse/fotobox/backend-cameras": [
+        "packages/fotobox/backend-cameras/src/index.ts"
+      ],
+      "@mvse/fotobox/backend-messenger": [
+        "packages/fotobox/backend-messenger/src/index.ts"
+      ],
+      "@mvse/fotobox/frontend-collage-layout": [
+        "packages/fotobox/frontend-collage-layout/src/index.ts"
+      ],
+      "@mvse/fotobox/frontend-data-access": [
+        "packages/fotobox/frontend-data-access/src/index.ts"
+      ],
+      "@mvse/fotobox/frontend-electron-ipc": [
+        "packages/fotobox/frontend-electron-ipc/src/index.ts"
+      ],
+      "@mvse/fotobox/frontend-setup-group": [
+        "packages/fotobox/frontend-setup-group/src/index.ts"
+      ],
+      "@mvse/fotobox/frontend-single-layout": [
+        "packages/fotobox/frontend-single-layout/src/index.ts"
+      ],
+      "@mvse/fotobox/graphql-types": [
+        "packages/fotobox/graphql-types/src/index.ts"
+      ],
+      "@mvse/fotobox/shared": ["packages/fotobox/shared/src/index.ts"],
+      "@mvse/fotobox/single-layout": [
+        "packages/fotobox/single-layout/src/index.ts"
+      ],
+      "@mvse/ui-shared/countdown": [
+        "packages/ui-shared/countdown/src/index.ts"
+      ],
+      "@mvse/ui-shared/header": ["packages/ui-shared/header/src/index.ts"],
+      "@mvse/ui-shared/message-stripe": [
+        "packages/ui-shared/message-stripe/src/index.ts"
+      ],
+      "@mvse/ui-shared/photo-view": [
+        "packages/ui-shared/photo-view/src/index.ts"
+      ],
+      "@mvse/ui-shared/shared": ["packages/ui-shared/shared/src/index.ts"],
+      "@mvse/ui-shared/styles": ["packages/ui-shared/styles/src/index.ts"],
+      "fotobox-collage-maker": ["package/fotobox/collage-maker/src/index.ts"],
+      "logger": ["packages/logger/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
